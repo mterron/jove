@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title>Real-Time WebGL Visualization</title>
+
+    <style>
+      html, body {
+        height: 100%;
+      }
+
+      body {
+        font-family: 'Helvetica Neue', Helvetica, sans-serif;
+        background: black;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      #globe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      #fullscreen {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        background: url(assets/fullscreen.png);
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+      }
+
+      #kiwibank {
+        position: absolute;
+        top: 20px !important;
+        left: 20px !important;
+        z-index: 200;
+        background: url(assets/kiwibank.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 52px;
+        height: 52px;
+      }
+
+      #title {
+        position: absolute;
+        top: 28px !important;
+        left: 80px !important;
+        display: block;
+        color: white;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+        font-size: 34px;
+        z-index: 202;
+      }
+
+      #info {
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+        position: absolute;
+        bottom: 20px !important;
+        left: 50% !important;
+        margin-left: -144.5px;
+        display: block;
+        z-index: 201;
+        text-align: center;
+      }
+
+      #info a {
+        color: white;
+      }
+
+      .share-btn {
+        position: absolute;
+        bottom: 20px;
+        left: 60px;
+        z-index: 203;
+      }
+
+      #qrcode {
+        position: absolute;
+        top: 0;
+        right: 20px;
+        color: #fff;
+        text-align: right;
+        font-size: 2em;
+        z-index: 300;
+      }
+
+      @-webkit-keyframes spin {
+        0% {
+          -webkit-transform: rotate(0turn);
+        }
+
+        100% {
+          -webkit-transform: rotate(1turn);
+        }
+      }
+
+      .spin {
+        -webkit-animation-name: spin;
+        -webkit-animation-duration: 1.5s;
+        -webkit-animation-iteration-count: infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      if (!window.WebGLRenderingContext) {
+        document.body.innerHTML = "Sorry your browser does not support WebGL. Please visit <a href='http://get.webgl.org'>http://get.webgl.org</a> for more information.";
+      }
+    </script>
+    <div id="globe">
+      <a><div id="kiwibank"></div></a>
+      <div id="title">Real-Time Traffic</div>
+
+    </div>
+    <div id="fullscreen"></div>
+    <canvas id="canvas" width="1024" height="512" style="display: none;"></canvas>
+
+
+    <script src="js/lodash.min.js"></script>
+
+    <script src="js/stats.min.js"></script>
+    <script src="js/three.js"></script>
+    <script src="js/globe.js"></script>
+    <script src="js/visibility.js"></script>
+    <script src="js/mousecontrols.js"></script>
+
+    <script src="js/dataws.js"></script>
+    <script src="js/url-config.js"></script>
+
+    <script src="js/jquery-2.1.0.min.js"></script>
+  </body>
+</html>
